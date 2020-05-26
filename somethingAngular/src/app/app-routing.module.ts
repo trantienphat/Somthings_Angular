@@ -1,27 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomePageComponent } from './contents/home-page/home-page.component';
-// const routes: Routes = [
-//   {
-//     path: '',
-//     redirectTo: 'home',
-//     pathMatch: 'full',
-//     data: {
-//       page: ''
-//     }
-//   },
-//   {
-//     path: '**',
-//     redirectTo: 'home'
-//   },
-//   {
-//     path: 'home',
-//     loadChildren: './contents/home-page/home-page.module#HomePageModule',
-//     data: {
-//       page: 'home'
-//     }
-//   }
-// ];
+import { PageNotFoundComponent } from './shared/components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {
@@ -39,7 +18,7 @@ const routes: Routes = [
       page: ''
     }
   },
-  // { path: '**', component:  } //404 Page
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
