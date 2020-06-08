@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener, OnDestroy, Injector } from '@angular/core';
 
-@Component({
-  selector: 'app-base-component',
-  templateUrl: './base-component.component.html',
-  styleUrls: ['./base-component.component.scss']
-})
-export class BaseComponentComponent implements OnInit {
+export abstract class BaseComponent implements OnInit, OnDestroy {
 
-  constructor() { }
+  abstract onInit();
+  abstract onDestroy();
 
-  ngOnInit() {
+  constructor(public injector: Injector) { }
+
+  ngOnDestroy() {
+    this.onInit();
   }
 
+  ngOnInit() {
+    this.onDestroy();
+  }
 }
